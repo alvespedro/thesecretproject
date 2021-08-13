@@ -1,0 +1,10 @@
+Jinja2
+numpy==1.18.5
+tensorflow-cpu
+keras
+uvicorn
+fastapi
+aiofiles
+python-multipart
+pyaml
+

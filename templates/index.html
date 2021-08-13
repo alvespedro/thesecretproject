@@ -1,0 +1,202 @@
+<html>
+
+<head>
+  <title>Toxic Comment Classifier</title>
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/style.css') }}">
+  <!--Bootstrap libs import-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!--Getting width from user device-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body>
+
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <img width="100%" src="https://drive.google.com/uc?export=view&id=1iBXuQ2PnP6BnLz1rv15bOi-IEiRo_8IZ" />
+    </div>
+  </div><!-- Video Row -->
+
+
+
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <p class="videostats">23.764 visualizações * 30 de jun. de 2021</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <img class="likearea" src="https://drive.google.com/uc?export=view&id=1acS2puIU5JB-F16tU8mbhsCXs6SYy1FT" />
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <hr class="dividerLines">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        </div>
+      </div><!-- Text bellow the video-->
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+          <img class="profile-icon"
+            src="https://drive.google.com/uc?export=view&id=1a3C_al7OAB9La3J3a7K5FTaciWDM-gz7" />
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+          <p class='channel-name'>Keysi Psico-Historiador</p>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <div class="w3-container">
+            <button onclick="document.getElementById('id01').style.display='block'"
+              class="w3-button w3-black">Conecte-se</button>
+            <div id="id01" class="w3-modal">
+              <div class="w3-modal-content w3-animate-top w3-card-4">
+                <header class="w3-container w3-teal">
+                  <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                  <h2>Contato profissional</h2>
+                </header>
+                <div class="w3-container">
+                  <img id="qrcode" src="https://drive.google.com/uc?export=view&id=1m6yjy-hVipbM2O16IzmDt1dOyiUDbEAB" />
+                </div>
+                <footer class="w3-container w3-teal">
+                  <h2></h2>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--Photo & Perfil Name & Connect-->
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <p class='show-more' onclick="showMore()"> MOSTRAR MAIS </p>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        </div>
+      </div>
+      <!--Show more Button-->
+      <div class="row">
+        <div id="shoMoreInfoId" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 showMoreInfoStyle">
+          <p class='body'> → Uso de Rede Neural para PLN </p>
+          <p class='body'> → Projeto de conclusão de curso Awari 08/2021</p>
+          <p class='body'> → Agradecimento especial para Fernando Wittman</p>
+          <p class='body'> → LinkedIn: in/keysisantos/ </p>
+        </div>
+      </div>
+      <!--Show more Info-->
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <hr class="dividerLines">
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <p class='body'>10.200 comentários </p>
+        </div>
+      </div><!-- Number of comments -->
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+          <img class="profile-icon"
+            src="https://drive.google.com/uc?export=view&id=1a3C_al7OAB9La3J3a7K5FTaciWDM-gz7" />
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+          <p class='channel-name'>Keysi Psico-Historiador</p>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <form action='/predict' method="post">
+            <input type="text" name="comment" placeholder="Adicionar um comentário público..." />
+            <input type="submit" value="COMENTAR" />
+          </form>
+        </div>
+      </div><!-- Adding Comment -->
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <img class="vid" src="https://drive.google.com/uc?export=view&id=1REZQI5mYw5XFMhLla8Et5BfDH_jv0J3q" />
+    </div>
+    <!--Video Pannell-->
+  </div>
+  </div><!-- Main Area-->
+
+
+
+</body>
+<!-- <hr class="line" style= top:-10px;> -->
+
+
+
+<!-- <button type="button" class='conecte-bt' onclick="showImage()" >CONECTE-SE</button>
+
+
+<p class='show-more' style=top:25px> MOSTRAR MAIS </p>
+<hr class="line" style= top:30px;> -->
+
+<!-- <form action='/predict' method="post">
+  <input type="text"  name="comment" placeholder="Adicionar um comentário público..."/>
+  <input type="submit" value="COMENTAR"/>
+</form> -->
+
+
+<script>
+  function showMore() {
+    document.getElementById('shoMoreInfoId').style.cssText = 'visibility:visible;';
+  }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+<div>
+  <canvas class="graph" id="myChart"></canvas>
+</div>
+<script>
+  const data = {
+    labels: {{ category | safe}},
+  datasets: [{
+    label: 'Comment Distribution',
+    data: {{ cat_values | safe}},
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(255, 159, 64, 0.2)',
+    'rgba(255, 205, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(153, 102, 255, 0.2)',
+    'rgba(255, 159, 64, 0.2)'
+  ],
+    borderColor: [
+    'rgb(255, 99, 132)',
+    'rgb(255, 159, 64)',
+    'rgb(255, 205, 86)',
+    'rgba(75, 192, 192, 1)',
+    'rgba(153, 102, 255, 1)',
+    'rgba(255, 159, 64, 1)'
+  ],
+    borderWidth: 1
+  }]
+};
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      responsive: false,
+      scales: {
+        yAxes: [{
+          display: true,
+          ticks: {
+            beginAtZero: true,
+            steps: 10,
+            stepValue: 5,
+            max: 100
+          }
+        }]
+      }
+    },
+  };
+  var myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+
+
+</html>
+
+{{ result }}
