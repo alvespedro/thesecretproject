@@ -10,9 +10,9 @@ app = FastAPI(debug=True)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
-#config = load_config()
-#model = load_model(config['paths']['model'])
-#tokenizer = load_tokenizer(config['paths']['tokenizer'])
+config = load_config()
+model = load_model(config['paths']['model'])
+tokenizer = load_tokenizer(config['paths']['tokenizer'])
 
 labels = ['toxic', 'severe_toxic', 'obscene','threat', 'insult', 'identity_hate']
 
@@ -27,16 +27,7 @@ def read_item(request: Request):
 
 @app.post("/predict")
 async def prediction(request: Request, comment: str = Form(...)):
-#    api_result = predict_comment(comment, tokenizer, model)
-    api_result = {
-      "comment":"Teste",
-      "toxic":0.1,
-      'severe_toxic':0.2,
-      'obscene':0.4,
-      'threat':0.7, 
-      'insult':0.9, 
-      'identity_hate':0.8
-      }
+    api_result = predict_comment(comment, tokenizer, model)
     comment_values = _comment_values(api_result, labels)
     return templates.TemplateResponse("index.html", {"request": request, 
                                                      "category": labels,
