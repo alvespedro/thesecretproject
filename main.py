@@ -2,8 +2,8 @@ import uvicorn
 from fastapi import FastAPI, Request, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-#from utils.io_utils import load_config
-#from utils.model_utils import load_model, load_tokenizer, predict_comment
+from utils.io_utils import load_config
+from utils.model_utils import load_model, load_tokenizer, predict_comment
 
 
 app = FastAPI(debug=True)
